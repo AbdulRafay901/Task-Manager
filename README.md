@@ -1,59 +1,306 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 Laravel REST API + JavaScript SPA Dashboard
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern SPA-style authentication and user management system built using **Laravel REST APIs** and **Vanilla JavaScript** with secure **Sanctum Cookie-Based Authentication**.
 
-## About Laravel
+This project follows a clean backend architecture using **Services**, **Form Requests**, **Events**, **Listeners**, and **Queues** while the frontend is rendered dynamically using JavaScript without any frontend framework.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![Laravel](https://img.shields.io/badge/Laravel-12-red)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![REST API](https://img.shields.io/badge/API-REST-green)
+![Sanctum](https://img.shields.io/badge/Auth-Sanctum-blue)
+![Spatie](https://img.shields.io/badge/Roles-Spatie-orange)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+# ✨ Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🔐 Authentication System
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- User Registration
+- User Login
+- Logout System
+- Email Verification
+- Resend Verification Code
+- Forgot Password
+- Change Password
+- Cookie-Based Authentication using Sanctum
+- Protected Authentication Routes
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 👥 Role-Based Access Control
 
-### Premium Partners
+Implemented using **Spatie Laravel Permission**.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Admin Permissions
 
-## Contributing
+- Create Users
+- Update Users
+- Delete Users
+- Bulk Delete
+- Full Dashboard Access
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### User Permissions
 
-## Code of Conduct
+- Read/View Data Only
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+# ⚡ SPA Frontend Architecture
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+This project uses a **Single Page Application (SPA)-style** frontend architecture without React or Vue.
 
-## License
+Laravel serves a single Blade view while all frontend rendering and route handling are managed dynamically using JavaScript.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```php
+Route::view('/{any}', 'layouts.app')->where('any', '.*');
+```
+
+Dynamic pages are rendered directly from JavaScript functions.
+
+```javascript
+function changePassword() {
+    return `
+        <section>
+            ...
+        </section>
+    `;
+}
+```
+
+---
+
+# 🛠 Tech Stack
+
+## Backend
+
+- Laravel
+- Laravel Sanctum
+- REST API
+- Spatie Laravel Permission
+- Queue System
+- Events & Listeners
+- Service Layer Architecture
+- Form Request Validation
+
+## Frontend
+
+- JavaScript
+- HTML5
+- CSS3
+
+## Database
+
+- MySQL
+
+---
+
+# 📂 Project Architecture
+
+This project follows a clean and scalable structure.
+
+```text
+app/
+ ┣ Http/
+ ┃ ┣ Controllers/
+ ┃ ┣ Requests/
+ ┃ ┣ Middleware/
+ ┣ Services/
+ ┣ Events/
+ ┣ Listeners/
+ ┣ Models/
+ ┣ Providers/
+
+routes/
+ ┣ api.php
+ ┣ web.php
+```
+
+---
+
+# 📧 Email System
+
+The email workflow is implemented using:
+
+- Laravel Events
+- Event Listeners
+- Queue System
+
+Emails are used for:
+
+- Verification Codes
+- Forgot Password
+- Resend Verification
+
+Queue workers process emails asynchronously for better performance.
+
+---
+
+# 📋 CRUD Features
+
+- Create Data
+- Read Data
+- Update Data
+- Delete Data
+- Bulk Delete
+- Pagination
+- Dynamic Rendering
+- Protected Admin Actions
+
+---
+
+# 🔒 Security Features
+
+- Sanctum Cookie Authentication
+- CSRF Protection
+- Protected API Routes
+- Middleware Authorization
+- Role-Based Access Control
+- Authenticated Route Protection
+
+Authenticated users cannot access login/register pages unless they logout.
+
+---
+
+# 🔗 REST API Endpoints
+
+| Method | Endpoint            | Description              |
+| ------ | ------------------- | ------------------------ |
+| POST   | /api/register       | Register User            |
+| POST   | /api/login          | Login User               |
+| POST   | /api/otpCheck       | OTP Verification         |
+| POST   | /api/resend-code    | Resend Verification Code |
+| POST   | /api/logout         | Logout User              |
+| POST   | /api/forgotPassword | Forgot Password          |
+| POST   | /api/changePassword | Change Password          |
+| GET    | /api/users          | Fetch Users              |
+| POST   | /api/users          | Create User              |
+| PUT    | /api/users/{id}     | Update User              |
+| DELETE | /api/users/{id}     | Delete User              |
+
+---
+
+# 📸 Screenshots
+
+## 🔑 Authentication Pages
+
+- Login Page
+- Register Page
+- Verify Code Page
+- Forgot Password Page
+
+## 📊 Dashboard
+
+- User Management
+- CRUD Operations
+- Pagination
+- Role-Based Controls
+
+> Add your project screenshots inside a `/screenshots` folder and update image paths here.
+
+```md
+![Dashboard](screenshots/dashboard.png)
+```
+
+---
+
+# ⚙️ Installation
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/your-repository.git
+```
+
+---
+
+## 2️⃣ Install Dependencies
+
+```bash
+composer install
+npm install
+```
+
+---
+
+## 3️⃣ Setup Environment File
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+---
+
+## 4️⃣ Configure Database
+
+Update your `.env` file with database credentials.
+
+```env
+DB_DATABASE=your_database
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+---
+
+## 5️⃣ Run Migrations
+
+```bash
+php artisan migrate
+```
+
+---
+
+## 6️⃣ Start Queue Worker
+
+```bash
+php artisan queue:work
+```
+
+---
+
+## 7️⃣ Run Development Server
+
+```bash
+php artisan serve
+```
+
+---
+
+# 🔥 Key Highlights
+
+✅ Laravel REST API Architecture
+✅ SPA-Style Frontend Rendering
+✅ Sanctum Cookie Authentication
+✅ Role & Permission Management
+✅ Queue & Event System
+✅ Service Layer Architecture
+✅ Form Request Validation
+✅ Protected Routes & Middleware
+✅ CRUD + Bulk Delete + Pagination
+✅ Dynamic Client-Side Rendering
+
+---
+
+# 🌐 Future Improvements
+
+- Search & Filtering
+- Real-Time Notifications
+- Profile Management
+- Dark Mode
+- API Documentation using Swagger
+
+---
+
+# 👨‍💻 Author
+
+Developed by **Rafay**
+
+---
+
+# 📄 License
+
+This project is open-source and available under the MIT License.

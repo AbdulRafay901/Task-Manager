@@ -199,7 +199,7 @@ Authenticated users cannot access login/register pages unless they logout.
 - Role-Based Controls
 
 ```md
-![Dashboard](images/dashboard.png)
+![Dashboard](./images/dashboard.png)
 ```
 
 ---

@@ -184,6 +184,9 @@ Authenticated users cannot access login/register pages unless they logout.
 
 # 📸 Screenshots
 
+<img width="1600" height="900" alt="dashboard" src="https://github.com/user-attachments/assets/93ad9ac8-1749-4181-86dc-676f4efc9324" />
+
+
 ## 🔑 Authentication Pages
 
 - Login Page

@@ -199,8 +199,7 @@ Authenticated users cannot access login/register pages unless they logout.
 - Role-Based Controls
 
 ```md
-![Uploading dashboard.png…]()
-
+<img width="1600" height="900" alt="dashboard" src="https://github.com/user-attachments/assets/b6ca9510-e13b-41e2-af79-b8f34ad4e213" />
 ```
 
 ---
